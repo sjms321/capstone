@@ -1,0 +1,33 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework: DEBUG
+
+spring:
+  messages:
+    basename: messages
+  security:
+    user:
+      name: username
+      password: passw0rd
+  datasource:
+    url: jdbc:mariadb://capstone.cjbw8mzbnsxy.ap-northeast-2.rds.amazonaws.com:3306/capstone
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: capstone
+    password: mjucapstone
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
