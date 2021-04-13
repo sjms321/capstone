@@ -25,22 +25,22 @@ public class UserJpaController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/users/{num}")
+    @GetMapping("/users/{id}")
     //특정 유저 정보 불러오기
-    public User retrieveUser(@PathVariable int num){
-        Optional<User> user = userRepository.findById(num);
+    public User retrieveUser(@PathVariable int id){
+        Optional<User> user = userRepository.findById(id);
 
         if (!user.isPresent()) {
 
-            throw new UserNotFoundException(String.format("num[%s] not found",num));
+            throw new UserNotFoundException(String.format("ID[%s] not found",id));
         }
 
         return user.get();
     }
-    @DeleteMapping("/users/{num}")
+    @DeleteMapping("/users/{id}")
     //유저 삭제
-    public void deleteUser(@PathVariable Integer num){
-        userRepository.deleteById(num);
+    public void deleteUser(@PathVariable int id){
+        userRepository.deleteById(id);
 
     }
     @PostMapping("/users")
@@ -48,8 +48,8 @@ public class UserJpaController {
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
         User savedUser = userRepository.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{num}")
-                .buildAndExpand(savedUser.getNum())
+                .path("/{id}")
+                .buildAndExpand(savedUser.getId())
                 .toUri();
 
         return ResponseEntity.created(location).build();
