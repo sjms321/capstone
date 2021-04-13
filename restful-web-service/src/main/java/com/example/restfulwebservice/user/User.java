@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,16 +26,31 @@ public class User {
 
     @Id//기본키
     @GeneratedValue//자동생성 키값
-    private Integer id;
+    private Integer num;
 
-    @Size(min=2,message = "Name은 2글자 이상 입력해주세요.")
-    private String name;
-    @Past //과거 시간인지 검사
-    private Date joinDate;
+    private String User_id;
 
-    private String password;
-    private String ssn;
 
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public String getUser_id() {
+        return User_id;
+    }
+
+    public void setUser_id(String user_id) {
+        User_id = user_id;
+    }
+
+    public User(int num, String User_id) {
+        this.num = num;
+        this.User_id = User_id;
+    }
 
 }
 

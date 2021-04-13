@@ -1,6 +1,5 @@
 package com.example.restfulwebservice.user;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -24,36 +23,34 @@ public class UserController {
     }
     //GET / users/1 or /users/10
 
-    @GetMapping("/users/{id}")
-    public User retrieveUsers(@PathVariable int id){
-        User user = service.findOne(id);
+    @GetMapping("/users/{num}")
+    public User retrieveUsers(@PathVariable int num){
+        User user = service.findOne(num);
         if(user == null){
-            throw new UserNotFoundException(String.format("ID[%s] nor found", id));
+            throw new UserNotFoundException(String.format("num[%s] not found", num));
         }
-
 
         return user;
     }
-    
 
     @PostMapping("/users")
     public ResponseEntity<User> createUsers(@Valid @RequestBody User user){
         User savedUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()//현재 요청된 request값을 사용하겠다
-                .path("/{id}")
-                .buildAndExpand(savedUser.getId())
+                .path("/{num}")
+                .buildAndExpand(savedUser.getNum())
                 .toUri();
 
         return ResponseEntity.created(location).build();
     }
 
-    @DeleteMapping("/users/{id}")
-    public void delteUser(@PathVariable int id){
-        User user = service.deletByID(id);
+    @DeleteMapping("/users/{num}")
+    public void deleteUser(@PathVariable int num){
+        User user = service.deleteByNum(num);
 
         if(user == null){
-            throw new UserNotFoundException(String.format("ID[%s] nor found", id));
+            throw new UserNotFoundException(String.format("num[%s] not found", num));
         }
 
     }

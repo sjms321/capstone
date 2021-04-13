@@ -39,10 +39,10 @@ public class AdminUserController {
     //GET / users/1 or /users/10
 
     @GetMapping("/users/{id}")
-    public MappingJacksonValue retrieveUsers(@PathVariable int id){
-        User user = service.findOne(id);
+    public MappingJacksonValue retrieveUsers(@PathVariable int num){
+        User user = service.findOne(num);
         if(user == null){
-            throw new UserNotFoundException(String.format("ID[%s] nor found", id));
+            throw new UserNotFoundException(String.format("ID[%s] nor found", num));
         }
         //전달하고자 하는 데이터의 값만 전달할 수 있도록 제어한다.
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter
