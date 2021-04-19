@@ -31,26 +31,7 @@ public class User {
     private String User_id;
 
 
-    public Integer getNum() {
-        return num;
-    }
 
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public String getUser_id() {
-        return User_id;
-    }
-
-    public void setUser_id(String user_id) {
-        User_id = user_id;
-    }
-
-    public User(int num, String User_id) {
-        this.num = num;
-        this.User_id = User_id;
-    }
 
 }
 

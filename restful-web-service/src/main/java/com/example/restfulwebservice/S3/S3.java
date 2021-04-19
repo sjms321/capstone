@@ -28,4 +28,8 @@ public class S3 {
     @JoinColumn(name = "list_id")
     private apply list;
 
+
+    public interface onlyUrl {
+        String getUrl();
+    }
 }
