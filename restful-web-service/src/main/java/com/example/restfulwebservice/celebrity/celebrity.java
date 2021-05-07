@@ -25,9 +25,19 @@ import java.util.List;
 public class celebrity {
 
     @Id//기본키
+    @Column(name="cel_id")
     @GeneratedValue//자동생성 키값
-    private int num;
+    private int id;
 
-    private String Cel_id;
+    private String name;
+    private String thumbnail;
+    private String detail_image;
+    private int age;
+    private String genre;
+    private String detail_genre;
+    private String subscribe;
+    private String explain_detail;
 
+    //@Column(name="celebrity_id")
+    //private String cel_id;
 }

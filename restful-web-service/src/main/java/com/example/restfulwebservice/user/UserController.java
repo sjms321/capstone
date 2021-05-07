@@ -39,7 +39,7 @@ public class UserController {
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()//현재 요청된 request값을 사용하겠다
                 .path("/{num}")
-                .buildAndExpand(savedUser.getNum())
+                .buildAndExpand(savedUser.getId())
                 .toUri();
 
         return ResponseEntity.created(location).build();

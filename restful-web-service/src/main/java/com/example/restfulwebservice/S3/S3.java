@@ -25,11 +25,7 @@ public class S3 {
     private String code;
 
     @ManyToOne
-    @JoinColumn(name = "list_id")
-    private apply list;
+    @JoinColumn(name = "Apply_id")
+    private apply apply_id;
 
-
-    public interface onlyUrl {
-        String getUrl();
-    }
 }

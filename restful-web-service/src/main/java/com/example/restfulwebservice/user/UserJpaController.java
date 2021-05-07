@@ -49,7 +49,7 @@ public class UserJpaController {
         User savedUser = userRepository.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{num}")
-                .buildAndExpand(savedUser.getNum())
+                .buildAndExpand(savedUser.getId())
                 .toUri();
 
         return ResponseEntity.created(location).build();

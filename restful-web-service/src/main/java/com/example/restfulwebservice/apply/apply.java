@@ -22,18 +22,19 @@ public class apply {
     @GeneratedValue//자동생성 키값
     private Integer apply_id;
 
-    //private String User_id;
-    private String title;
-    private String Content;
+    private String name;
     private String email;
+    private String title;
+    private String request;
+    private String story;
+    private String selectedYoutuberName;
     private String code;
-   // private String Cel_id;
+
+    @ManyToOne
+    @JoinColumn(name = "cel_id")
+    private celebrity cel_id;
 
     @ManyToOne
     @JoinColumn(name = "User_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "Cel_id")
-    private celebrity celebrity;
+    private User user_id;
 }

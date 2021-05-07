@@ -3,7 +3,6 @@ package com.example.restfulwebservice.user;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,8 +23,8 @@ public class UserDaoService {
     }
 
     public User save(User user){
-        if(user.getNum()==null){
-            user.setNum(++usersCount);
+        if(user.getId()==null){
+            user.setId(++usersCount);
         }
         users.add(user);
         return user;
@@ -33,7 +32,7 @@ public class UserDaoService {
 
     public User findOne(int num){
         for(User user: users){
-            if(user.getNum()==num){
+            if(user.getId()==num){
                 return user;
             }
         }
@@ -45,7 +44,7 @@ public class UserDaoService {
         while(iterator.hasNext()){
             User user = iterator.next();
 
-            if(user.getNum() == num){
+            if(user.getId() == num){
                 iterator.remove();
                 return user;
             }

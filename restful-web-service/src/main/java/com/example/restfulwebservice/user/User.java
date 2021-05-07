@@ -1,18 +1,11 @@
 package com.example.restfulwebservice.user;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,12 +19,30 @@ public class User {
 
     @Id//기본키
     @GeneratedValue//자동생성 키값
-    private Integer num;
+    private Integer id;
 
-    private String User_id;
+    @Column(name="User_id")
+    private String user_id;
 
 
+    public Integer getId() { return id; }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        user_id = user_id;
+    }
+
+    public User(int num, String User_id) {
+        this.id = num;
+        this.user_id = User_id;
+    }
 
 }
 
