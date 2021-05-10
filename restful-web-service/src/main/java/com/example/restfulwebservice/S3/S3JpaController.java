@@ -28,12 +28,12 @@ public class S3JpaController {
         return S3Repository.findAll();
     }
 
-    @GetMapping("/S3/{id}")
+    @GetMapping("/S3/{code}")
     //특정 유저 정보 불러오기
-    public S3 retrieveS3(@PathVariable int id){
-        Optional<S3> servletS3 = S3Repository.findById(id);
+    public S3 retrieveS3code(@PathVariable String code){
+        Optional<S3> S3 = S3Repository.findBycode(code);
 
-        return servletS3.get();
+        return S3.get();
     }
     @DeleteMapping("/S3/{id}")
     //유저 삭제
