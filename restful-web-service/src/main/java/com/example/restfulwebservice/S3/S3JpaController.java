@@ -35,6 +35,7 @@ public class S3JpaController {
 
         return S3.get();
     }
+
     @DeleteMapping("/S3/{id}")
     //유저 삭제
     public void deleteS3(@PathVariable Integer id){
