@@ -25,7 +25,6 @@ import java.util.List;
 public class celebrity {
 
     @Id//기본키
-    @Column(name="cel_id")
     @GeneratedValue//자동생성 키값
     private int id;
 
@@ -37,7 +36,4 @@ public class celebrity {
     private String detail_genre;
     private String subscribe;
     private String explain_detail;
-
-    //@Column(name="celebrity_id")
-    //private String cel_id;
 }

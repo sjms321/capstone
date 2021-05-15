@@ -17,6 +17,8 @@ public class applyJpaController {
     @Autowired
     private applyRepository applyRepository;
 
+    @Autowired applyJpaService applyJpaService;
+
     // http://localhost:8088/jpa/apply
     @GetMapping("/apply")
     //모든 유저 보여주기
@@ -29,10 +31,26 @@ public class applyJpaController {
 
         return servletList.get();
     }
+
     @DeleteMapping("/apply/{id}")
     //유저 삭제
     public void deleteapply(@PathVariable Integer id){
         applyRepository.deleteById(id);
+
+    }
+
+    @GetMapping("/apply/Bycel/{name}")
+    //cel_id로 신청 리스트 정보 불러오기
+    public List<apply> retrieveApplyByCelId(@PathVariable String name){
+        return applyRepository.findByselectedYoutuberName(name);
+    }
+
+    @PutMapping("/apply/modify")
+    //영어만 받음
+    //title로 찾아 code 수정하기
+    public void modifyApply_code(@RequestBody apply apply) {
+
+        applyJpaService.updateApply(apply.getTitle(), apply.getCode());
 
     }
 

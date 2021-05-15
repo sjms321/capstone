@@ -20,21 +20,15 @@ import javax.persistence.*;
 public class apply {
     @Id//기본키
     @GeneratedValue//자동생성 키값
-    private Integer apply_id;
+    private Integer apply_id; // apply 기본키
 
-    private String name;
-    private String email;
-    private String title;
-    private String request;
-    private String story;
-    private String selectedYoutuberName;
-    private String code;
-
-    @ManyToOne
-    @JoinColumn(name = "cel_id")
-    private celebrity cel_id;
-
-    @ManyToOne
-    @JoinColumn(name = "User_id")
-    private User user_id;
+    private String name; // 신청한 연예인 이름
+    private String email;  // 발송할 이메일
+    private String title;  // 신청 사연 제목
+    private String request; // 신청자 요청사항
+    private String story; // 신청자 사연
+    private String selectedYoutuberName; // 선택한 연예인
+    private String code; // 동영상 코드
+    //private String celId; // ??
+    private String userId; // 신청자 아이디
 }

@@ -24,8 +24,4 @@ public class S3 {
     private String url;
     private String code;
 
-    @ManyToOne
-    @JoinColumn(name = "Apply_id")
-    private apply apply_id;
-
 }
