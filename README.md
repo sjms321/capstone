@@ -40,7 +40,7 @@ https://user-images.githubusercontent.com/67422547/124547689-7ae8b180-de67-11eb-
 
 ![image-20210705182012957](https://user-images.githubusercontent.com/67422547/124547500-32c98f00-de67-11eb-9d7f-e4b0b886761b.png)
 
-**플리케이션을 만들기 위해 하이브리드 앱 프레임워크로 React-native를 사용했습니다 **
+**어플리케이션을 만들기 위해 하이브리드 앱 프레임워크로 React-native를 사용했습니다 **
 
 **서버에 데이터들을 어플리케이션에서 사용하기위해 spring boot를 이용하여 rest api를 구현했습니다. **
 
